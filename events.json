@@ -1,17 +1,122 @@
 [
     {
         "id": "1",
-        "title": "Berufsschule",
-        "start": "2025-03-15",
-        "backgroundColor": "#3788d8",
-        "borderColor": "#3788d8"
+        "title": "Schule Denis",
+        "start": "2025-04-14",
+        "end": "2025-05-01",
+        "backgroundColor": "#6F9EB2",
+        "borderColor": "#6F9EB2"
     },
     {
         "id": "2",
-        "title": "Urlaub",
-        "start": "2025-04-10",
-        "end": "2025-04-15",
-        "backgroundColor": "#28a745",
-        "borderColor": "#28a745"
+        "title": "Urlaub Denis",
+        "start": "2025-06-16",
+        "end": "2025-06-30",
+        "backgroundColor": "#EED47E",
+        "borderColor": "#EED47E"
+    },
+    {
+        "id": "3",
+        "title": "Schule Denis",
+        "start": "2025-07-02",
+        "end": "2025-07-23",
+        "backgroundColor": "#6F9EB2",
+        "borderColor": "#6F9EB2"
+    },
+    {
+        "id": "4",
+        "title": "Urlaub Denis",
+        "start": "2025-08-04",
+        "end": "2025-08-15",
+        "backgroundColor": "#EED47E",
+        "borderColor": "#EED47E"
+    },
+    {
+        "id": "5",
+        "title": "Urlaub Denis",
+        "start": "2025-12-22",
+        "end": "2025-12-31",
+        "backgroundColor": "#EED47E",
+        "borderColor": "#EED47E"
+    },
+    {
+        "id": "6",
+        "title": "Urlaub Johan",
+        "start": "2025-04-02",
+        "end": "2025-04-04",
+        "backgroundColor": "#E5904C",
+        "borderColor": "#E5904C"
+    },
+    {
+        "id": "7",
+        "title": "Urlaub Johan",
+        "start": "2025-05-26",
+        "end": "2025-05-30",
+        "backgroundColor": "#E5904C",
+        "borderColor": "#E5904C"
+    },
+    {
+        "id": "8",
+        "title": "Urlaub Johan",
+        "start": "2025-08-04",
+        "end": "2025-08-08",
+        "backgroundColor": "#E5904C",
+        "borderColor": "#E5904C"
+    },
+    {
+        "id": "9",
+        "title": "Urlaub Johan",
+        "start": "2025-10-27",
+        "end": "2025-10-30",
+        "backgroundColor": "#E5904C",
+        "borderColor": "#E5904C"
+    },
+    {
+        "id": "10",
+        "title": "Urlaub Johan",
+        "start": "2025-12-22",
+        "end": "2026-01-02",
+        "backgroundColor": "#E5904C",
+        "borderColor": "#E5904C"
+    },
+    {
+        "id": "11",
+        "title": "Uni Johan",
+        "start": "2025-05-05",
+        "end": "2025-05-23",
+        "backgroundColor": "#4A7938",
+        "borderColor": "#4A7938"
+    },
+    {
+        "id": "12",
+        "title": "Berufsschule Johan",
+        "start": "2025-06-02",
+        "end": "2025-07-25",
+        "backgroundColor": "#C3D0A9",
+        "borderColor": "#C3D0A9"
+    },
+    {
+        "id": "13",
+        "title": "Uni Johan",
+        "start": "2025-09-22",
+        "end": "2025-10-10",
+        "backgroundColor": "#4A7938",
+        "borderColor": "#4A7938"
+    },
+    {
+        "id": "14",
+        "title": "Berufsschule Johan",
+        "start": "2025-10-13",
+        "end": "2025-10-17",
+        "backgroundColor": "#C3D0A9",
+        "borderColor": "#C3D0A9"
+    },
+    {
+        "id": "15",
+        "title": "Berufsschule Johan",
+        "start": "2025-11-03",
+        "end": "2025-12-12",
+        "backgroundColor": "#C3D0A9",
+        "borderColor": "#C3D0A9"
     }
 ]

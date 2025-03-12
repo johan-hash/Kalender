@@ -3,31 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azubi Kalender - Monatsansicht</title>
-    <!-- FullCalendar CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.css" rel="stylesheet">
+    <title>Azubi Kalender - Jahresansicht</title>
     <!-- Bootstrap CSS für Styling -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome für Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Eigene CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header class="my-4">
-            <h1 class="text-center">Azubi Kalender - Monatsansicht</h1>
+            <h1 class="text-center">Azubi Kalender - Jahresansicht</h1>
             <p class="text-muted text-center">Abwesenheiten können nur über die Datei <code>events.json</code> verwaltet werden.</p>
             <div class="mb-3 text-center">
-                <a href="year.html" class="btn btn-primary"><i class="fas fa-calendar-alt me-2"></i>Zur Jahresansicht</a>
+                <a href="index.html" class="btn btn-primary"><i class="fas fa-calendar-alt me-2"></i>Zur Monatsansicht</a>
             </div>
         </header>
 
-        <!-- Kalender-Container -->
-        <div id="calendar" class="mb-4"></div>
+        <!-- Jahresansicht -->
+        <div id="yearView" class="mt-4">
+            <h2 class="text-center mb-4">Jahresansicht</h2>
+            <div id="monthGrid" class="month-grid"></div>
+        </div>
     </div>
 
     <!-- Skripte -->
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script_month.js"></script>
+    <script src="script_year.js"></script>
 </body>
 </html>
