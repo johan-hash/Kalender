@@ -45,12 +45,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="month-body">
                         <ul class="list-group list-group-flush">
                             ${monthEvents.length > 0 ? monthEvents.map(event => `
-                                <li class="list-group-item event-item" style="background-color: ${event.backgroundColor}; border-color: ${event.borderColor};">
+                                <li class="list-group-item event-item" style="background-color: ${event.backgroundColor}; border-color: ${event.borderColor}; border-radius: 5px;">
                                     <strong>${event.title}</strong><br>
                                     <small>Start: ${event.start}${event.end ? ` | Ende: ${event.end}` : ''}</small>
                                 </li>
                             `).join('') : `
-                                <li class="list-group-item event-item placeholder-item">
+                                <li class="list-group-item event-item placeholder-item" style="border-radius: 5px;">
                                     <p class="text-muted mb-0">Keine Abwesenheiten in diesem Monat.</p>
                                 </li>
                             `}
