@@ -1,13 +1,14 @@
 [
     {
         "title": "Berufsschule",
-        "start": "2024-03-15",
+        "start": "2025-06-01",
+        "end": "2025-07-25",
         "type": "Berufsschule"
     },
     {
         "title": "Urlaub",
-        "start": "2024-04-10",
-        "end": "2024-04-15",
+        "start": "2025-04-10",
+        "end": "2025-04-15",
         "type": "Urlaub"
     }
 ]
