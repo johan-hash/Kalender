@@ -1,20 +1,17 @@
 [
     {
+        "id": "1",
         "title": "Berufsschule",
-        "start": "2025-06-01T00:00:00",
-        "end": "2025-06-01T23:59:59",
-        "type": "Berufsschule"
+        "start": "2025-03-15",
+        "backgroundColor": "#3788d8",
+        "borderColor": "#3788d8"
     },
     {
+        "id": "2",
         "title": "Urlaub",
-        "start": "2025-04-10T00:00:00",
-        "end": "2025-04-15T23:59:59",
-        "type": "Urlaub"
-    },
-    {
-        "title": "Ferien",
-        "start": "2025-07-20T00:00:00",
-        "end": "2025-07-25T23:59:59",
-        "type": "Urlaub"
+        "start": "2025-04-10",
+        "end": "2025-04-15",
+        "backgroundColor": "#28a745",
+        "borderColor": "#28a745"
     }
 ]

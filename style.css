@@ -1,0 +1,26 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.fc {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 15px;
+}
+
+.fc-button {
+    border-radius: 4px !important;
+}
+
+h1 {
+    color: #333;
+    font-weight: bold;
+}

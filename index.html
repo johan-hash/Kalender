@@ -1,23 +1,66 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Azubi Kalender</title>
-    <!-- FullCalendar Stylesheet -->
+    <!-- FullCalendar CSS -->
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.css" rel="stylesheet">
-    <!-- FullCalendar und Moment.js für die Verarbeitung von Datum/Zeit -->
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
-    <!-- Dein eigenes JavaScript für den Kalender -->
-    <script src="calendar.js" defer></script>
+    <!-- Bootstrap CSS für Styling und Modal -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Eigene CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <h1>Azubi Kalender</h1>
-    <!-- Der Kalender Container -->
-    <div id="calendar"></div>
-</body>
+    <div class="container">
+        <header class="my-4">
+            <h1 class="text-center">Azubi-Kalender</h1>
+            <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#eventModal">Neuer Termin</button>
+        </header>
 
+        <!-- Kalender-Container -->
+        <div id="calendar"></div>
+    </div>
+
+    <!-- Modal für neuen Termin -->
+    <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eventModalLabel">Neuer Termin</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="eventForm">
+                        <div class="mb-3">
+                            <label for="eventTitle" class="form-label">Titel</label>
+                            <input type="text" class="form-control" id="eventTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="eventStart" class="form-label">Startdatum</label>
+                            <input type="date" class="form-control" id="eventStart" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="eventEnd" class="form-label">Enddatum (optional)</label>
+                            <input type="date" class="form-control" id="eventEnd">
+                        </div>
+                        <div class="mb-3">
+                            <label for="eventColor" class="form-label">Farbe</label>
+                            <input type="color" class="form-control form-control-color" id="eventColor" value="#3788d8">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
+                    <button type="button" class="btn btn-primary" id="saveEvent">Speichern</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skripte -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
