@@ -4,32 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Azubi Kalender - Jahresansicht</title>
-    <!-- Bootstrap CSS für Styling -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome für Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Eigene CSS -->
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .month-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .month-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            text-align: center;
+        }
+        .day {
+            padding: 5px;
+            border-radius: 4px;
+            min-height: 40px;
+        }
+        .weekend {
+            background-color: #e9ecef; /* Grau für Wochenenden */
+        }
+        .free-day {
+            background-color: #d4edda; /* Hellgrün für freie Tage */
+        }
+        .day-header {
+            font-weight: bold;
+            padding: 5px;
+            background-color: #f1f3f5;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <header class="my-4">
-            <h1 class="text-center">Azubi Kalender - Jahresansicht</h1>
-            <p class="text-muted text-center">Abwesenheiten können nur über die Datei <code>events.json</code> verwaltet werden.</p>
-            <div class="mb-3 text-center">
-                <a href="index.html" class="btn btn-primary"><i class="fas fa-calendar-alt me-2"></i>Zur Monatsansicht</a>
-            </div>
+        <header class="my-4 text-center">
+            <h1>Azubi Kalender</h1>
+            <p class="text-muted">Abwesenheiten können nur über die Datei <code>events.json</code> verwaltet werden.</p>
+            <a href="index.html" class="btn btn-primary"><i class="fas fa-calendar-alt me-2"></i>Zur Monatsansicht</a>
         </header>
 
-        <!-- Jahresansicht -->
-        <div id="yearView" class="mt-4">
-            <h2 class="text-center mb-4">Jahresansicht</h2>
-            <div id="monthGrid" class="month-grid"></div>
-        </div>
+        <div id="yearView" class="month-grid"></div>
     </div>
 
-    <!-- Skripte -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script_year.js"></script>
 </body>
 </html>

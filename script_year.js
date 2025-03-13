@@ -1,64 +1,66 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const yearViewEl = document.getElementById('yearView');
-    const monthGridEl = document.getElementById('monthGrid'); // Konsistent mit year.html
-    let events = [];
-
-    fetch('events.json')
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("events.json")
         .then(response => {
-            if (!response.ok) throw new Error('Fehler beim Laden der Events');
+            if (!response.ok) throw new Error(`HTTP-Fehler: ${response.status}`);
             return response.json();
         })
-        .then(data => {
-            events = data;
-            updateYearView();
-        })
-        .catch(error => {
-            console.error('Fehler beim Laden der Events:', error);
-            events = [];
-            updateYearView();
-        });
+        .then(events => renderYearView(events))
+        .catch(error => console.error("Fehler beim Laden der Events:", error));
 
-    function updateYearView() {
-        monthGridEl.innerHTML = '';
-        const currentYear = new Date().getFullYear();
-        const months = [
-            'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
-            'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
-        ];
+    function renderYearView(events) {
+        const yearView = document.getElementById("yearView");
+        const monthNames = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+        const year = 2025;
+        const dayNames = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]; // Woche beginnt mit Montag
 
-        months.forEach((month, index) => {
-            const monthEvents = events.filter(event => {
-                const eventDate = new Date(event.start);
-                return eventDate.getFullYear() === currentYear && eventDate.getMonth() === index;
+        monthNames.forEach((month, index) => {
+            const daysInMonth = new Date(year, index + 1, 0).getDate();
+            const firstDayOfMonth = new Date(year, index, 1).getDay(); // 0 = Sonntag, 1 = Montag, ...
+            const monthDiv = document.createElement("div");
+            monthDiv.className = "month-card";
+
+            // Kopfzeile mit Wochentagen
+            let monthContent = `<h5 class="text-center fw-bold">${month} ${year}</h5>`;
+            monthContent += '<div class="calendar">';
+            dayNames.forEach(day => {
+                monthContent += `<div class="day-header">${day}</div>`;
             });
 
-            const monthCard = document.createElement('div');
-            monthCard.className = 'month-card';
-            monthCard.innerHTML = `
-                <div class="month-header" id="heading${index}">
-                    <button class="month-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${index}" aria-expanded="false" aria-controls="collapse${index}">
-                        <i class="fas fa-calendar-day me-2"></i> ${month} ${currentYear}
-                        ${monthEvents.length > 0 ? `<span class="badge rounded-pill bg-danger ms-auto">${monthEvents.length}</span>` : ''}
-                    </button>
-                </div>
-                <div id="collapse${index}" class="collapse" aria-labelledby="heading${index}" data-bs-parent="#monthGrid">
-                    <div class="month-body">
-                        <ul class="list-group list-group-flush">
-                            ${monthEvents.length > 0 ? monthEvents.map(event => `
-                                <li class="list-group-item event-item" style="background-color: ${event.backgroundColor}; border-color: ${event.borderColor}; border-radius: 5px;">
-                                    <strong>${event.title}</strong><br>
-                                    <small>Start: ${event.start}${event.end ? ` | Ende: ${event.end}` : ''}</small>
-                                </li>
-                            `).join('') : `
-                                <li class="list-group-item event-item placeholder-item" style="border-radius: 5px;">
-                                    <p class="text-muted mb-0">Keine Abwesenheiten in diesem Monat.</p>
-                                </li>
-                            `}
-                        </ul>
-                    </div>
-                </div>
-            `;
-            monthGridEl.appendChild(monthCard);
+            // Offset für den ersten Tag (Montag-Start: So = 6, Mo = 0, ...)
+            const adjustedFirstDay = (firstDayOfMonth + 6) % 7; // Verschiebt Sonntag ans Ende
+            for (let i = 0; i < adjustedFirstDay; i++) {
+                monthContent += `<div class="day"></div>`; // Leere Zellen vor Monatsbeginn
+            }
+
+            // Tage des Monats
+            for (let day = 1; day <= daysInMonth; day++) {
+                const currentDate = new Date(Date.UTC(year, index, day));
+                const dateStr = currentDate.toISOString().split('T')[0];
+                const dayOfWeek = (currentDate.getDay() + 6) % 7; // Montag = 0, ..., Sonntag = 6
+                let dayClass = 'day';
+
+                // Wochenenden markieren (Sa = 5, So = 6)
+                if (dayOfWeek === 5 || dayOfWeek === 6) {
+                    dayClass += ' weekend';
+                } else {
+                    // Prüfen, ob ein Event an diesem Tag existiert
+                    const hasEvent = events.some(event => {
+                        const start = new Date(event.start);
+                        const end = new Date(event.end || event.start);
+                        return currentDate >= start && currentDate <= end;
+                    });
+                    // Nur freie Tage (keine Events) hellgrün markieren
+                    if (!hasEvent) {
+                        dayClass += ' free-day';
+                    }
+                }
+
+                monthContent += `<div class="${dayClass}">${day}</div>`;
+            }
+
+            monthContent += "</div>";
+            monthDiv.innerHTML = monthContent;
+            yearView.appendChild(monthDiv);
         });
     }
 });

@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
         locale: 'de',
+        firstDay: 1, // Woche beginnt mit Montag (0 = Sonntag, 1 = Montag, ...)
         headerToolbar: {
             left: 'prev,next today',
             center: 'title',
@@ -48,13 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         eventResize: function(info) {
             updateEvent(info.event);
-        },
-        eventClick: function(info) {
-            if (confirm(`Möchtest du "${info.event.title}" löschen?`)) {
-                info.event.remove();
-                events = events.filter(event => event.id !== info.event.id);
-                saveEventsToConsole();
-            }
         }
     });
 

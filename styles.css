@@ -1,0 +1,130 @@
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+.text-muted {
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* FullCalendar Styling */
+.fc {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.fc-button {
+    background-color: #007bff;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.fc-button:hover {
+    background-color: #0056b3;
+}
+
+.fc-daygrid-day {
+    transition: background-color 0.3s ease;
+}
+
+.free-day {
+    background-color: #d4edda !important; /* Hellgrün für freie Tage */
+}
+
+.event-day {
+    background-color: #f8d7da !important; /* Hellrot für belegte Tage */
+}
+
+.weekend {
+    background-color: #e9ecef !important; /* Grau für Wochenenden */
+}
+
+/* Jahresansicht */
+#yearView {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.month-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.month-card {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 10px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+.day {
+    padding: 8px;
+    border-radius: 4px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2c3e50;
+    transition: all 0.3s ease;
+}
+
+.free-day {
+    background-color: #d4edda; /* Hellgrün */
+}
+
+.event-day {
+    color: white; /* Weißer Text für Lesbarkeit */
+}
+
+.weekend {
+    background-color: #e9ecef; /* Grau */
+}
+
+@media (max-width: 992px) {
+    .month-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .month-grid {
+        grid-template-columns: 1fr;
+    }
+}
