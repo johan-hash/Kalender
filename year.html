@@ -34,12 +34,35 @@
             background-color: #e9ecef; /* Grau für Wochenenden */
         }
         .free-day {
-            background-color: #d4edda; /* Hellgrün für freie Tage */
+            background-color: #d4edda; /* Hellgrün für Tage, an denen beide da sind */
         }
         .day-header {
             font-weight: bold;
             padding: 5px;
             background-color: #f1f3f5;
+            border-radius: 4px;
+        }
+        .legend-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .legend {
+            display: inline-flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
             border-radius: 4px;
         }
     </style>
@@ -52,6 +75,21 @@
             <a href="index.html" class="btn btn-primary"><i class="fas fa-calendar-alt me-2"></i>Zur Monatsansicht</a>
         </header>
 
+        <!-- Legende in eigenem Container -->
+        <div class="legend-container">
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #d4edda;"></div>
+                    <span>Tage, an denen beide da sind</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #e9ecef;"></div>
+                    <span>Wochenenden</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kalender-Grid -->
         <div id="yearView" class="month-grid"></div>
     </div>
 
