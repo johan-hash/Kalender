@@ -43,41 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         },
         events: events,
-        editable: true,
-        eventDrop: function(info) {
-            updateEvent(info.event);
-        },
-        eventResize: function(info) {
-            updateEvent(info.event);
-        }
+        editable: false // Drag-and-Drop deaktivieren
     });
 
     calendar.render();
-
-    function updateEvent(event) {
-        const index = events.findIndex(e => e.id === event.id);
-        if (index !== -1) {
-            const updatedEvent = {
-                id: event.id,
-                title: event.title,
-                start: event.start.toISOString().split('T')[0],
-                end: event.end ? new Date(event.end).toISOString().split('T')[0] : null,
-                backgroundColor: event.backgroundColor,
-                borderColor: event.borderColor
-            };
-            if (updatedEvent.end) {
-                // Rückgängigmachen der Anpassung für FullCalendar, damit der Endtag in events.json inklusiv ist
-                const endDate = new Date(updatedEvent.end);
-                endDate.setDate(endDate.getDate() - 1);
-                updatedEvent.end = endDate.toISOString().split('T')[0];
-            }
-            events[index] = updatedEvent;
-            saveEventsToConsole();
-        }
-    }
-
-    function saveEventsToConsole() {
-        // Events ohne Anpassung ausgeben, da sie bereits für inklusiven Endtag korrekt sind
-        console.log('Aktualisierte Events (kopiere dies in events.json):', JSON.stringify(events, null, 2));
-    }
 });
