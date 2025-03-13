@@ -8,16 +8,46 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
+        :root {
+            /* Light Mode (Standard) */
+            --body-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --text-color: #2c3e50;
+            --card-bg: white;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --muted-text: #6c757d;
+            --button-bg: #007bff;
+            --button-hover-bg: #0056b3;
+            --date-bg: #ffffff;
+            --date-text: #000000;
+        }
+        /* Dark Mode */
+        body.dark-mode {
+            --body-bg: linear-gradient(135deg, #1e2a38 0%, #2c3e50 100%);
+            --text-color: #ffffff;
+            --card-bg: #3b4a5e;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+            --muted-text: #b0bec5;
+            --button-bg: #4682b4;
+            --button-hover-bg: #5a9bd4;
+            --date-bg: #4a5e77;
+            --date-text: #000000;
+        }
+        body {
+            background: var(--body-bg);
+            color: var(--text-color);
+            transition: background 0.3s ease, color 0.3s ease;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
         .month-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
         .month-card {
-            background: white;
+            background: var(--card-bg);
             padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px var(--shadow-color);
         }
         .calendar {
             display: grid;
@@ -29,12 +59,15 @@
             padding: 5px;
             border-radius: 4px;
             min-height: 40px;
+            background-color: var(--date-bg);
+            color: var(--date-text);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         .weekend {
-            background-color: #e9ecef; /* Grau für Wochenenden */
+            background-color: #e9ecef;
         }
         .free-day {
-            background-color: #d4edda; /* Hellgrün für Tage, an denen beide da sind */
+            background-color: #d4edda;
         }
         .day-header {
             font-weight: bold;
@@ -42,10 +75,13 @@
             background-color: #f1f3f5;
             border-radius: 4px;
         }
+        body.dark-mode .day-header {
+            color: #000000; /* Schwarz im Darkmode */
+        }
         .legend-container {
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px var(--shadow-color);
             padding: 15px;
             margin-bottom: 20px;
             text-align: center;
@@ -65,6 +101,29 @@
             height: 20px;
             border-radius: 4px;
         }
+        .darkmode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .btn-primary {
+            background-color: var(--button-bg);
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: var(--button-hover-bg);
+        }
+        h1 {
+            color: var(--text-color);
+        }
+        .text-muted {
+            color: var(--muted-text);
+        }
+        body.dark-mode .text-muted {
+            color: #ffffff !important;
+        }
     </style>
 </head>
 <body>
@@ -74,6 +133,13 @@
             <p class="text-muted">Abwesenheiten können nur über die Datei <code>events.json</code> verwaltet werden.</p>
             <a href="index.html" class="btn btn-primary"><i class="fas fa-calendar-alt me-2"></i>Zur Monatsansicht</a>
         </header>
+
+        <!-- Darkmode-Schalter -->
+        <div class="darkmode-toggle">
+            <button id="darkmode-btn" class="btn btn-secondary">
+                <i class="fas fa-moon"></i> Darkmode
+            </button>
+        </div>
 
         <!-- Legende in eigenem Container -->
         <div class="legend-container">
@@ -94,5 +160,27 @@
     </div>
 
     <script src="script_year.js"></script>
+    <script>
+        // Darkmode-Logik
+        const darkmodeBtn = document.getElementById('darkmode-btn');
+        const body = document.body;
+
+        // Darkmode-Status aus localStorage laden
+        if (localStorage.getItem('darkmode') === 'enabled') {
+            body.classList.add('dark-mode');
+            darkmodeBtn.innerHTML = '<i class="fas fa-sun"></i> Lightmode';
+        }
+
+        darkmodeBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkmode', 'enabled');
+                darkmodeBtn.innerHTML = '<i class="fas fa-sun"></i> Lightmode';
+            } else {
+                localStorage.setItem('darkmode', 'disabled');
+                darkmodeBtn.innerHTML = '<i class="fas fa-moon"></i> Darkmode';
+            }
+        });
+    </script>
 </body>
 </html>
