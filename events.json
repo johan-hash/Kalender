@@ -118,5 +118,85 @@
         "end": "2025-12-12",
         "backgroundColor": "#C3D0A9",
         "borderColor": "#C3D0A9"
-    }
-]
+    },
+        {
+            "id": "16",
+            "title": "Neujahrstag",
+            "start": "2025-01-01",
+            "end": "2025-01-01",
+            "backgroundColor": "#B8B8B8",
+            "borderColor": "#B8B8B8"
+        },
+        {
+            "id": "17",
+            "title": "Karfreitag",
+            "start": "2025-04-18",
+            "end": "2025-04-18",
+            "backgroundColor": "#B8B8B8",
+            "borderColor": "#B8B8B8"
+        },
+        {
+            "id": "18",
+            "title": "Ostermontag",
+            "start": "2025-04-21",
+            "end": "2025-04-21",
+            "backgroundColor": "#B8B8B8",
+            "borderColor": "#B8B8B8"
+        },
+        {
+            "id": "19",
+            "title": "Tag der Arbeit",
+            "start": "2025-05-01",
+            "end": "2025-05-01",
+            "backgroundColor": "#B8B8B8",
+            "borderColor": "#B8B8B8"
+        },
+        {
+            "id": "20",
+            "title": "Christi Himmelfahrt",
+            "start": "2025-05-29",
+            "end": "2025-05-29",
+            "backgroundColor": "#B8B8B8",
+            "borderColor": "#B8B8B8"
+        },
+        {
+            "id": "21",
+            "title": "Pfingstmontag",
+            "start": "2025-06-09",
+            "end": "2025-06-09",
+            "backgroundColor": "#B8B8B8",
+            "borderColor": "#B8B8B8"
+        },
+        {
+            "id": "22",
+            "title": "Tag der Deutschen Einheit",
+            "start": "2025-10-03",
+            "end": "2025-10-03",
+            "backgroundColor": "#B8B8B8",
+            "borderColor": "#B8B8B8"
+        },
+        {
+            "id": "23",
+            "title": "Reformationstag",
+            "start": "2025-10-31",
+            "end": "2025-10-31",
+            "backgroundColor": "#B8B8B8",
+            "borderColor": "#B8B8B8"
+        },
+        {
+            "id": "24",
+            "title": "Erster Weihnachtstag",
+            "start": "2025-12-25",
+            "end": "2025-12-25",
+            "backgroundColor": "#B8B8B8",
+            "borderColor": "#B8B8B8"
+        },
+        {
+            "id": "25",
+            "title": "Zweiter Weihnachtstag",
+            "start": "2025-12-26",
+            "end": "2025-12-26",
+            "backgroundColor": "#B8B8B8",
+            "borderColor": "#B8B8B8"
+        }
+    ]
