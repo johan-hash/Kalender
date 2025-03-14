@@ -137,7 +137,7 @@
 </head>
 <body>
     <!-- Logo als Darkmode-Button (initial default1.svg) -->
-    <img src="/favicon/default1.svg" alt="Darkmode Toggle" class="site-logo" id="darkmode-toggle">
+    <img src="/Kalender/favicon/default1.svg" alt="Darkmode Toggle" class="site-logo" id="darkmode-toggle">
 
     <div class="container">
         <header class="my-4 text-center">
@@ -173,19 +173,19 @@
         // Darkmode-Status aus localStorage laden
         if (localStorage.getItem('darkmode') === 'enabled') {
             body.classList.add('dark-mode');
-            darkmodeToggle.src = '/favicon/default.svg'; // Initial auf Darkmode-Logo
+            darkmodeToggle.src = '/Kalender/favicon/default.svg'; // Initial auf Darkmode-Logo
         } else {
-            darkmodeToggle.src = '/favicon/default1.svg'; // Initial auf Lightmode-Logo
+            darkmodeToggle.src = '/Kalender/favicon/default1.svg'; // Initial auf Lightmode-Logo
         }
 
         darkmodeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
             if (body.classList.contains('dark-mode')) {
                 localStorage.setItem('darkmode', 'enabled');
-                darkmodeToggle.src = '/favicon/default.svg'; // Wechsel zu default.svg im Darkmode
+                darkmodeToggle.src = '/Kalender/favicon/default.svg'; // Wechsel zu default.svg im Darkmode
             } else {
                 localStorage.setItem('darkmode', 'disabled');
-                darkmodeToggle.src = '/favicon/default1.svg'; // Wechsel zu default1.svg im Lightmode
+                darkmodeToggle.src = '/Kalender/favicon/default1.svg'; // Wechsel zu default1.svg im Lightmode
             }
         });
     </script>
