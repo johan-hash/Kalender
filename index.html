@@ -32,7 +32,7 @@
             --text-color: #ffffff;
             --card-bg: #3b4a5e;
             --shadow-color: rgba(0, 0, 0, 0.5);
-            --muted-text: #b0bec5; /* Allgemein hellgrau, wird überschrieben */
+            --muted-text: #b0bec5;
             --button-bg: #4682b4;
             --button-hover-bg: #5a9bd4;
             --date-bg: #4a5e77;
@@ -43,6 +43,7 @@
             color: var(--text-color);
             transition: background 0.3s ease, color 0.3s ease;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
         }
         .legend-container {
             background-color: var(--card-bg);
@@ -73,12 +74,6 @@
             height: 20px;
             border-radius: 4px;
         }
-        .darkmode-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
         .btn-primary {
             background-color: var(--button-bg);
             border: none;
@@ -93,9 +88,8 @@
         .text-muted {
             color: var(--muted-text);
         }
-        /* Spezifischer Text im Darkmode weiß */
         body.dark-mode .text-muted {
-            color: #ffffff !important; /* Weiß im Darkmode */
+            color: #ffffff !important;
         }
         #calendar {
             background-color: var(--card-bg);
@@ -116,9 +110,25 @@
         .fc .fc-button:hover {
             background-color: var(--button-hover-bg);
         }
+        /* Logo Styling (als Darkmode-Button) */
+        .site-logo {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            z-index: 1000;
+            cursor: pointer; /* Zeigt, dass es klickbar ist */
+        }
+        .site-logo:hover {
+            opacity: 0.8; /* Hover-Effekt für bessere UX */
+        }
     </style>
 </head>
 <body>
+    <!-- Logo als Darkmode-Button (initial default1.svg) -->
+    <img src="/favicon/default1.svg" alt="Darkmode Toggle" class="site-logo" id="darkmode-toggle">
+
     <div class="container">
         <header class="my-4 text-center">
             <h1>Azubi Kalender</h1>
@@ -127,13 +137,6 @@
                 <a href="year.html" class="btn btn-primary"><i class="fas fa-calendar-alt me-2"></i>Zur Jahresansicht</a>
             </div>
         </header>
-
-        <!-- Darkmode-Schalter -->
-        <div class="darkmode-toggle">
-            <button id="darkmode-btn" class="btn btn-secondary">
-                <i class="fas fa-moon"></i> Darkmode
-            </button>
-        </div>
 
         <!-- Legende -->
         <div class="legend-container">
@@ -177,23 +180,25 @@
     <script src="script_month.js"></script>
     <script>
         // Darkmode-Logik
-        const darkmodeBtn = document.getElementById('darkmode-btn');
+        const darkmodeToggle = document.getElementById('darkmode-toggle'); // Logo als Toggle
         const body = document.body;
 
         // Darkmode-Status aus localStorage laden
         if (localStorage.getItem('darkmode') === 'enabled') {
             body.classList.add('dark-mode');
-            darkmodeBtn.innerHTML = '<i class="fas fa-sun"></i> Lightmode';
+            darkmodeToggle.src = '/favicon/default.svg'; // Initial auf Darkmode-Logo
+        } else {
+            darkmodeToggle.src = '/favicon/default1.svg'; // Initial auf Lightmode-Logo
         }
 
-        darkmodeBtn.addEventListener('click', () => {
+        darkmodeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
             if (body.classList.contains('dark-mode')) {
                 localStorage.setItem('darkmode', 'enabled');
-                darkmodeBtn.innerHTML = '<i class="fas fa-sun"></i> Lightmode';
+                darkmodeToggle.src = '/favicon/default.svg'; // Wechsel zu default.svg im Darkmode
             } else {
                 localStorage.setItem('darkmode', 'disabled');
-                darkmodeBtn.innerHTML = '<i class="fas fa-moon"></i> Darkmode';
+                darkmodeToggle.src = '/favicon/default1.svg'; // Wechsel zu default1.svg im Lightmode
             }
         });
     </script>
