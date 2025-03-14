@@ -68,7 +68,7 @@ h1 {
 
 /* Jahresansicht */
 #yearView {
-    background-color: white;
+    background-color: rgb(64, 89, 121);
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     padding: 20px;
