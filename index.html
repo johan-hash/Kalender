@@ -123,6 +123,52 @@
         .site-logo:hover {
             opacity: 0.8; /* Hover-Effekt für bessere UX */
         }
+
+        @media (max-width: 768px) {
+    .legend {
+        flex-direction: column; /* Legende untereinander */
+        gap: 20px;
+    }
+    .legend-group {
+        flex-direction: column; /* Gruppen untereinander */
+        gap: 15px;
+    }
+    .fc .fc-daygrid-day {
+        font-size: 0.9em;
+    }
+    .site-logo {
+        width: 70px;
+        height: 70px;
+        top: 10px;
+        right: 10px;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    .fc .fc-button {
+        padding: 6px 12px; /* Kleinere Buttons */
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 576px) {
+    .fc .fc-daygrid-day {
+        font-size: 0.8em;
+    }
+    .fc .fc-daygrid-day-number {
+        padding: 4px;
+    }
+    .btn-primary {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+    .legend-container {
+        padding: 10px;
+    }
+    .container {
+        padding: 15px; /* Weniger Padding auf kleinen Geräten */
+    }
+}
     </style>
 </head>
 <body>
