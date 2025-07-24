@@ -26,8 +26,8 @@
     {
         "id": "4",
         "title": "Urlaub Denis",
-        "start": "2025-08-04",
-        "end": "2025-08-15",
+        "start": "2025-08-27",
+        "end": "2025-09-10",
         "backgroundColor": "#EED47E",
         "borderColor": "#EED47E"
     },
@@ -206,13 +206,5 @@
             "end": "2025-05-02",
             "backgroundColor": "#E5904C",
             "borderColor": "#E5904C"
-        },
-        {
-            "id": "27",
-            "title": "Urlaub Denis",
-            "start": "2025-09-29",
-            "end": "2025-10-17",
-            "backgroundColor": "#EED47E",
-            "borderColor": "#EED47E"
         }
     ]
