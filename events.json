@@ -200,19 +200,19 @@
             "borderColor": "#B8B8B8"
         },
         {
-        "id": "26",
-        "title": "Urlaub Johan",
-        "start": "2025-05-02",
-        "end": "2025-05-02",
-        "backgroundColor": "#E5904C",
-        "borderColor": "#E5904C"
-    },
-    {
-        "id": "27",
-        "title": "Schule Denis",
-        "start": "2025-09-29",
-        "end": "2025-10-17",
-        "backgroundColor": "#6F9EB2",
-        "borderColor": "#6F9EB2"
-    }
+            "id": "26",
+            "title": "Urlaub Johan",
+            "start": "2025-05-02",
+            "end": "2025-05-02",
+            "backgroundColor": "#E5904C",
+            "borderColor": "#E5904C"
+        },
+        {
+            "id": "27",
+            "title": "Urlaub Denis",
+            "start": "2025-09-29",
+            "end": "2025-10-17",
+            "backgroundColor": "#EED47E",
+            "borderColor": "#EED47E"
+        }
     ]
