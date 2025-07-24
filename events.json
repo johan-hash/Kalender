@@ -214,5 +214,13 @@
             "end": "2025-10-17",
             "backgroundColor": "#6F9EB2",
             "borderColor": "#6F9EB2"
-        }
+        },
+    {
+        "id": "28",
+        "title": "Urlaub Johan",
+        "start": "2025-08-11",
+        "end": "2025-08-15",
+        "backgroundColor": "#E5904C",
+        "borderColor": "#E5904C"
+    }
     ]
